@@ -1,16 +1,11 @@
 pipeline {
-    agent {label "linux"}
-	options {
-		buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', days
-ToKeepStr: '', num ToKeepStr: '5')
-	disableConcurrentBuilds()
-}
+    agent any
     stages {
         stage('Hello') {
             steps {
+		git clone 'https://github.com/CT2-DEVOPS-Team2/myinsuranceapp.git'
                 echo 'Hello World'
             }
         }
     }
 }
-
