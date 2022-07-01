@@ -1,7 +1,7 @@
 "# My Insurance App" 
 
 "actualizacion"
-"Elleta Rocks"
+"Elleta is awesome"
 
 Dependencies :
 	
