@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 "hola esto es una actualizacion"
 "team 2"
+"NEW TEST"
 =======
 "actualizacion"
 "Elleta is awesome yay!!"
