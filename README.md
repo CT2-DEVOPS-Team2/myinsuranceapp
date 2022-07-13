@@ -38,3 +38,6 @@ API endpoints:
       - {Aunthenticate: Bearer <token>}
     - Users: http://localhost:5000/api/v1/users
     - Products: http://localhost:5000/api/v1/products
+
+
+ py -m unittest discover -s project/acceptancetest -v
