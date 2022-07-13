@@ -11,7 +11,7 @@ class TestApp(unittest.TestCase):
         tester = app.test_client(self)
         test_data = {"email":"jd@myinsuranceapp.com","password":"passwordjd"}
         response = tester.post('/api/v1/token',content_type='application/json', json=test_data)        
-        data=json.loads(response.text)
+        data=response.json.data(response.text)
         print(f"post token: {data}")
         self.assertEqual(response.status_code, 200)
         if response.status_code==200:
