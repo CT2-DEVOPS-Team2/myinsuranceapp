@@ -8,16 +8,16 @@ pipeline {
                 git branch: 'develop',url: 'https://github.com/CT2-DEVOPS-Team2/myinsuranceapp.git'
 	        }
         }        
-        stage('Unit/Integration tests') {
-            steps {
-                echo 'Unit/Integration...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s project/tests/unit -v'
-            }
-        }        
+        // stage('Unit/Integration tests') {
+        //     steps {
+        //         echo 'Unit/Integration...'
+        //         bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s project/tests/unit -v'
+        //     }
+        // }        
         stage('Acceptance tests') {
             steps {
                 echo 'Acceptance...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s project/acceptancetest -v'
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest  tests/acceptancetest/acceptance_test.py'
             }
         }        
     }

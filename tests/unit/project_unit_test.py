@@ -3,7 +3,7 @@ from tests.unit import Unit
 
 class TestUnit(unittest.TestCase):
     def setUp(self) -> None:
-        self.unit = Unit(self)     
+        self.unit = Unit('Juan','j@j.com','my address')        
 
     def test_update_mail(self):
         newEmail='new@j.com'
