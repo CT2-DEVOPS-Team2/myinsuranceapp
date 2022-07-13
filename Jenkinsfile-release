@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    environment {
+    username = 'admin'
+    password = 'Pa55w.rd'
+    }
     
     
     stages {
@@ -40,9 +45,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                withCredentials([usernamePassword(credentialsId: 'nexus2_credentials', usernameVariable: 'USER', passwordVariable: 'USERPASS')]) {
-                echo "$USER $USERPASS"
-                bat "twine upload  --repository-url http://localhost:8081/repository/hosted-python/ dist/* -u${USER} -p${USERPASS}"
+                bat "twine upload  --repository-url http://localhost:8081/repository/hosted-python/ dist/* -u${username} -p${password}"
                 }
             }
         }
