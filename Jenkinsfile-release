@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    environment {
+    username = 'admin'
+    password = 'Pa55w.rd'
+    }
     
     
     stages {
@@ -9,34 +14,41 @@ pipeline {
                 // bat 'rd /s /q "dist"'
                 bat 'dir'
 	        }
-        }        
+        }
+        stage('Setup'){
+            steps {
+                echo 'Set up...'
+                bat 'pip install -r requirements.txt'
+                bat 'mkdir database'
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe project/init/init_db.py'
+                bat """set JENKINS_NODE_COOKIE=dontKillMe && start /min c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe runserver.py """
+            }
+        }    
         stage('Unit/Integration tests') {
             steps {
                 echo 'Unit/Integration...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe  unittest  tests/unit '
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s tests/load/unit -v'
             }
         }
         stage('Package') {
             steps {
                 echo 'Packaging...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe  build' 
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m build' 
             }
         }
         stage('Acceptance tests') {
             steps {
                 echo 'Acceptance...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe  unittest tests/acceptance '
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s tests/load/acceptance -v'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                //withCredentials([usernamePassword(credentialsId: 'nexus_credentials', usernameVariable: 'USER', passwordVariable: 'USERPASS')]) {
-                //    echo "$USER $USERPASS"
-                //    bat "twine upload  --repository-url http://localhost:8081/repository/hosted-python/ dist/* -u${USER} -p${USERPASS}"
-                //}
+                bat "twine upload  --repository-url http://localhost:8081/repository/hosted-python/ dist/* -u${username} -p${password}"
             }
         }
+        
     }
     post {
         always {
@@ -47,10 +59,6 @@ pipeline {
         }
         failure {
             echo 'post do this when failure...'
-        }
-        cleanup{
-            echo 'post do this when cleanup...'
-            deleteDir()
         }
     }
 }
