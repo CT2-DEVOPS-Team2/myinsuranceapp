@@ -1,14 +1,5 @@
 "# My Insurance App" 
 
-<<<<<<< HEAD
-"hola esto es una actualizacion"
-"team 2"
-"NEW TEST"
-=======
-"actualizacion"
-"Elleta is awesome yay!!"
-
->>>>>>> ce9114da0aeb2d97ae4bd0da003ebde93c9e934f
 Dependencies :
 	
     - If you have old version of project: pip uninstall -r requirements.txt
@@ -38,3 +29,6 @@ API endpoints:
       - {Aunthenticate: Bearer <token>}
     - Users: http://localhost:5000/api/v1/users
     - Products: http://localhost:5000/api/v1/products
+
+
+ py -m unittest discover -s project/acceptancetest -v
