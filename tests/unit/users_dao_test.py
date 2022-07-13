@@ -11,6 +11,8 @@ class User_dao_Test(unittest.TestCase):
         self.assertIsNotNone(user["fullname"])
     
     def test_edit_user(self):
+        users=get_users()
         #user = request.json
         ok = edit_user("williams", "w@.es", "13-08", "spain", "london", "street1", "12345", 2)
-        
+        print(ok)
+        self.assertEqual(users[1]["fullname"],"williams")
