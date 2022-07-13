@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'tests',url: 'https://github.com/CT2-DEVOPS-Team2/myinsuranceapp.git' 
+                git branch: 'main',url: 'https://github.com/CT2-DEVOPS-Team2/myinsuranceapp.git' 
                 // bat 'rd /s /q "dist"'
                 bat 'dir'
 	        }
