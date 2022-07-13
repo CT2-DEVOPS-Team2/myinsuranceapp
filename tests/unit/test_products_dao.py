@@ -28,9 +28,6 @@ class TestProducts(unittest.TestCase):
         print(product)
         self.assertEqual(product["name"], "House Insurance")
     
-    """def test_4_delete_product(self):
-        delete_product(3)
-        products = get_products()
-        print (products)"""
+    
 
     
