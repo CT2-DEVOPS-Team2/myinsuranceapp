@@ -5,19 +5,20 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'develop',url: 'https://github.com/emcdanie/python-package-flask-test-elleta.git'
+                git branch: 'develop',url: 'https://github.com/CT2-DEVOPS-Team2/myinsuranceapp.git'
 	        }
         }        
-        stage('Unit/Integration tests') {
-            steps {
-                echo 'Unit/Integration...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s tests/unit -v'
-            }
-        }        
+        // stage('Unit/Integration tests') {
+        //     steps {
+        //         echo 'Unit/Integration...'
+        //         bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s project/tests/unit -v'
+        //     }
+        // }        
         stage('Acceptance tests') {
             steps {
                 echo 'Acceptance...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s tests/acceptance -v'
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest tests/acceptance/test_user.py'
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest tests/acceptance/test_userpost.py'
             }
         }        
     }
