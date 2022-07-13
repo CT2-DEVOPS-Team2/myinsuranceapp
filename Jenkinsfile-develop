@@ -11,7 +11,7 @@ pipeline {
         stage('Unit/Integration tests') {
             steps {
                 echo 'Unit/Integration...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s project/test/unit -v'
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s project/tests/unit -v'
             }
         }        
         stage('Acceptance tests') {
