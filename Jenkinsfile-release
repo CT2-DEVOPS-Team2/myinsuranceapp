@@ -46,9 +46,9 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 bat "twine upload  --repository-url http://localhost:8081/repository/hosted-python/ dist/* -u${username} -p${password}"
-                }
             }
         }
+        
     }
     post {
         always {
