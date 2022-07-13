@@ -1,12 +1,6 @@
 "# My Insurance App" 
 
-<<<<<<< HEAD
-"hola esto es una actualizacion"
-"team 2"
-"NEW TEST"
-=======
-"actualizacion"
-"Elleta is awesome yay!!"
+
 
 >>>>>>> ce9114da0aeb2d97ae4bd0da003ebde93c9e934f
 Dependencies :
