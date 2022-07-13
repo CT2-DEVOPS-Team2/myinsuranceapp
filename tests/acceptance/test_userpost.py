@@ -34,4 +34,3 @@ class TestApp(unittest.TestCase):
         print(f"get post 2: {data}")
         self.assertEqual(response.status_code, 400)
         
-
