@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main',url: 'https://github.com/emcdanie/python-package-flask-test-elleta.git' 
+                git branch: 'main',url: 'https://github.com/CT2-DEVOPS-Team2/myinsuranceapp.git' 
                 // bat 'rd /s /q "dist"'
                 bat 'dir'
 	        }
@@ -13,28 +13,28 @@ pipeline {
         stage('Unit/Integration tests') {
             steps {
                 echo 'Unit/Integration...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest  tests/unit '
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe  unittest  tests/unit '
             }
         }
         stage('Package') {
             steps {
                 echo 'Packaging...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m  build' 
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe  build' 
             }
         }
         stage('Acceptance tests') {
             steps {
                 echo 'Acceptance...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest tests/acceptance '
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe  unittest tests/acceptance '
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                withCredentials([usernamePassword(credentialsId: 'nexus_credentials', usernameVariable: 'USER', passwordVariable: 'USERPASS')]) {
-                    echo "$USER $USERPASS"
-                    bat "twine upload  --repository-url http://localhost:8081/repository/myinsuranceapp/ dist/* -u${USER} -p${USERPASS}"
-                }
+                //withCredentials([usernamePassword(credentialsId: 'nexus_credentials', usernameVariable: 'USER', passwordVariable: 'USERPASS')]) {
+                //    echo "$USER $USERPASS"
+                //    bat "twine upload  --repository-url http://localhost:8081/repository/hosted-python/ dist/* -u${USER} -p${USERPASS}"
+                //}
             }
         }
     }
