@@ -13,19 +13,19 @@ pipeline {
         stage('Unit/Integration tests') {
             steps {
                 echo 'Unit/Integration...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s tests/unit -v'
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe  unittest  tests/unit '
             }
         }
         stage('Package') {
             steps {
                 echo 'Packaging...'
-               // bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m build' 
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe  build' 
             }
         }
         stage('Acceptance tests') {
             steps {
                 echo 'Acceptance...'
-                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe -m unittest discover -s tests/acceptance -v'
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe  unittest tests/acceptance '
             }
         }
         stage('Deploy') {
