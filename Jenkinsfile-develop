@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'develop',url: 'https://github.com/emcdanie/python-package-flask-test-elleta.git'
+                git branch: 'develop',url: 'https://github.com/CT2-DEVOPS-Team2/myinsuranceapp.git'
 	        }
         }        
         stage('Unit/Integration tests') {
