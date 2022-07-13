@@ -10,8 +10,7 @@ def get_products():
 
 def get_product(product_id):
     conn = get_db_connection()
-    product = conn.execute('SELECT * FROM products WHERE id = ?',
-                        (product_id,)).fetchone()
+    product = conn.execute('SELECT * FROM products WHERE id = ?', (product_id,)).fetchone()
     conn.close()
     if product is None:
         abort(404)
@@ -20,7 +19,7 @@ def get_product(product_id):
 def create_product(name, description, cost, is_active):
     conn = get_db_connection()
     conn.execute('INSERT INTO products (name, description, cost, is_active) VALUES (?, ?, ?, ?)',
-                         (name, description, cost, is_active))
+                        (name, description, cost, is_active))
     conn.commit()
     conn.close()
     return True
@@ -28,8 +27,8 @@ def create_product(name, description, cost, is_active):
 def edit_product(name, description, cost, is_active, id):
     conn = get_db_connection()
     conn.execute('UPDATE products SET name = ?, description = ?, cost=?, is_active=?'
-                         ' WHERE id = ?',
-                         (name, description, cost, is_active, id))
+                        ' WHERE id = ?',
+                        (name, description, cost, is_active, id))
     conn.commit()
     conn.close()
     return True
