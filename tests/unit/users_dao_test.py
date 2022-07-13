@@ -1,7 +1,7 @@
 import unittest
 
 from project.persistence.users_dao import *
-from flask import jsonify, request
+
 
 class User_dao_Test(unittest.TestCase):
     def test_get_user(self):
@@ -12,7 +12,14 @@ class User_dao_Test(unittest.TestCase):
     
     def test_edit_user(self):
         users=get_users()
-        #user = request.json
+        print(users)
         ok = edit_user("williams", "w@.es", "13-08", "spain", "london", "street1", "12345", 2)
         print(ok)
         self.assertEqual(users[1]["fullname"],"williams")
+        
+    def test_createUser(self):
+
+        newuser=create_user("Usuario nuevo", "suario@.es","13-07-2022", "pais 1","ciudad 1"," avenue1","pw")
+        print(newuser)
+        #hacer validacion si el metodo es true.. si es true quiere decir que esta bien
+        self.assertTrue(newuser)
