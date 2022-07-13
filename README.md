@@ -1,11 +1,5 @@
 "# My Insurance App" 
 
-"hola esto es una actualizacion"
-"team 2"
-"NEW TEST"
-"actualizacion"
-"Elleta is awesome yay!!"
-
 Dependencies :
 	
     - If you have old version of project: pip uninstall -r requirements.txt
