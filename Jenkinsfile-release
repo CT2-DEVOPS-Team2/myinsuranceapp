@@ -9,7 +9,16 @@ pipeline {
                 // bat 'rd /s /q "dist"'
                 bat 'dir'
 	        }
-        }        
+        }
+        stage('Setup'){
+            steps {
+                echo 'Set up...'
+                bat 'pip install -r requirements.txt'
+                bat 'mkdir database'
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe project/init/init_db.py'
+                bat 'c:/Users/Administrator/AppData/Local/Programs/Python/Python39/python.exe runserver.py'
+            }
+        }    
         stage('Unit/Integration tests') {
             steps {
                 echo 'Unit/Integration...'
