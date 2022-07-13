@@ -31,4 +31,6 @@ API endpoints:
     - Products: http://localhost:5000/api/v1/products
 
 
- py -m unittest discover -s project/acceptancetest -v
+ py -m unittest discover -s tests/acceptancetest -v
+
+ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1NzY5ODM0NywianRpIjoiMTMyMDQwODgtMGUzZi00NjgwLWFhY2QtMzU5NDJhNmRlYjlkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjU3Njk4MzQ3LCJleHAiOjE2NTc2OTkyNDd9.hcUUMKI_r3L77kiKmgUSA9R0llLor4og6lX0uFWGWWE
