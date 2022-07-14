@@ -45,7 +45,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                bat "twine upload  --repository-url http://localhost:8081/repository/hosted-python/ dist/* -u${username} -p${password}"
+                bat "twine upload  --repository-url http://localhost:8081/repository/myinsuranceapp/ dist/* -u${username} -p${password}"
             }
         }
         
